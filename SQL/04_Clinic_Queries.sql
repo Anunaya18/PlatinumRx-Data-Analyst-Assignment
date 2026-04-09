@@ -1,21 +1,20 @@
--- 1 Revenue by channel
-SELECT sales_channel, SUM(amount)
-FROM clinic_sales
-WHERE YEAR(datetime)=2021
-GROUP BY sales_channel;
+-- 4. Most profitable clinic per city
 
--- 2 Top 10 customers
-SELECT uid, SUM(amount) total
-FROM clinic_sales
-GROUP BY uid
-ORDER BY total DESC
-LIMIT 10;
+WITH profit_data AS (
+    SELECT 
+        c.city,
+        cs.cid,
+        SUM(cs.amount) - COALESCE(SUM(e.amount),0) AS profit
+    FROM clinic_sales cs
+    JOIN clinics c ON cs.cid = c.cid
+    LEFT JOIN expenses e ON cs.cid = e.cid
+    GROUP BY c.city, cs.cid
+),
 
--- 3 Monthly profit
-SELECT MONTH(cs.datetime) m,
-SUM(cs.amount) revenue,
-SUM(e.amount) expense,
-SUM(cs.amount)-SUM(e.amount) profit
-FROM clinic_sales cs
-LEFT JOIN expenses e ON cs.cid=e.cid
-GROUP BY m;
+ranked AS (
+    SELECT *,
+           RANK() OVER (PARTITION BY city ORDER BY profit DESC) AS rnk
+    FROM profit_data
+)
+
+SELECT * FROM ranked WHERE rnk = 1;
