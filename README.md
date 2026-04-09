@@ -30,7 +30,7 @@ It includes database querying, spreadsheet analysis, and basic programming logic
 
 Finds the most recent room booked by each user.
 
-![SQL Q1](screenshots/sql_q1.png)
+![SQL Q1](sql_01.mp4)
 
 ---
 
@@ -38,7 +38,7 @@ Finds the most recent room booked by each user.
 
 Calculates total bill amount per booking.
 
-![SQL Q2](screenshots/sql_q2.png)
+![SQL Q2](sql_01.mp4)
 
 ---
 
@@ -46,7 +46,7 @@ Calculates total bill amount per booking.
 
 Filters high-value bills using HAVING clause.
 
-![SQL Q3](screenshots/sql_q3.png)
+![SQL Q3](sql_01.mp4)
 
 ---
 
@@ -54,22 +54,8 @@ Filters high-value bills using HAVING clause.
 
 Uses window function (RANK) to find top ordered items.
 
-![SQL Q4](screenshots/sql_q4.png)
+![SQL Q4](sql_01.mp4)
 
----
-
-## 📊 Spreadsheet Analysis
-
-* Used **XLOOKUP/VLOOKUP** to map ticket data
-* Created helper columns for:
-
-  * Same Day tickets
-  * Same Hour tickets
-* Used **Pivot Table** for outlet-wise analysis
-
-![Excel Output](screenshots/excel_output.png)
-
----
 
 ## 🐍 Python Scripts
 
@@ -79,6 +65,7 @@ Converts minutes into readable format.
 
 Example:
 130 → 2 hrs 10 minutes
+![Python Output](python_01.png)
 
 ### 2. Remove Duplicates
 
@@ -87,7 +74,7 @@ Removes duplicate characters from a string.
 Example:
 programming → progamin
 
-![Python Output](screenshots/python_output.png)
+![Python Output](python_02.png)
 
 ---
 
