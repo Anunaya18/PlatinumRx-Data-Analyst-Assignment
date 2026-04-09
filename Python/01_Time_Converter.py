@@ -1,6 +1,11 @@
-def convert(minutes):
-    h = minutes // 60
-    m = minutes % 60
-    return f"{h} hrs {m} minutes"
+def convert_minutes(minutes):
+    hrs = minutes // 60
+    mins = minutes % 60
 
-print(convert(130))
+    if hrs > 0:
+        return f"{hrs} hr{'s' if hrs > 1 else ''} {mins} minutes"
+    return f"{mins} minutes"
+
+# User input
+minutes = int(input("Enter minutes: "))
+print(convert_minutes(minutes))
